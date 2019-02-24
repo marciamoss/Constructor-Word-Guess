@@ -22,14 +22,14 @@ const Word = function (word) {
             }
         }
         if(correct==1){
-            console.log("Correct!!! ");
+            console.log("\nCorrect!!!\n ".green);
             
         }else if(correct==undefined){
             this.guessCount--;
-            console.log("Wrong!!! ");
+            console.log("\nWrong!!!\n".red);
         }
-        console.log("Guesses Left "+ this.guessCount);
-        console.log(displayWord.join(" ")+"\n");
+        console.log("\nGuesses Left ".cyan+ this.guessCount+"\n");
+        console.log(displayWord.join(" ").bold+"\n\n");
         var countDown=this.guessCount
         return {displayWord,countDown};
     }

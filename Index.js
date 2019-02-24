@@ -5,6 +5,10 @@ const Word = require("./Word.js");
 
 const randomWords = require('random-words');
 
+const colors = require('colors');
+
+function wordy(){
+
 var theWord=randomWords();
 
 var Wordprocess= new Word(theWord);
@@ -31,7 +35,7 @@ function getLetter(){
             for( var z = 0; z < (letterArr.length-1); z++){
                 lth=letterArr.length-1;
                 if (letterArr[z]===letterArr[lth]){
-                    console.log("Letter already guesses try another letter");
+                    console.log("\nLETTER ALREADY GUESSED TRY ANOTHER LETTER\n".bold.bgYellow);
                     letterArr.pop();
                     dup=1;
                 }
@@ -48,7 +52,8 @@ function getLetter(){
         }
         
         if((resultSoFar.countDown>0 && resultSoFar.countDown<=10) && resultSoFar.displayWord.indexOf("_")>-1){
-            getLetter();
+            setTimeout(getLetter, 500);
+            
         }else{
             
             for(var i=0;i<letterArr.length;i++){
@@ -68,13 +73,19 @@ function getLetter(){
             }
 
             if(resultSoFar.displayWord.indexOf("_")===-1){
-                console.log("YOU GOT IT RIGHT!!!!\n\n");
+                console.log("YOU GOT IT RIGHT!!!! NEXT WORD !\n\n".green.bold);
+            }else{
+                console.log("Wrong letters guessed "+wrongLetter+"\n\n"+"Right Letters Guessed "+correctLetter+"\n");
+                console.log("Try Again!!!! The right word was ".yellow+theWord.toUpperCase().blue.bold+"\n\nNext Word !\n\n".red);
             }
 
-            console.log("Wrong letters guessed "+wrongLetter+"\n\n"+"Right Letters Guessed "+correctLetter);
+            setTimeout(wordy, 1000);
             
         }
     });
 }
 
 getLetter();
+
+}
+wordy();
