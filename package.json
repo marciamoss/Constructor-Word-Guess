@@ -1,0 +1,23 @@
+{
+  "name": "constructor-word-guess",
+  "version": "1.0.0",
+  "description": "npm for node word game",
+  "main": "Index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marciamoss/Constructor-Word-Guess.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marciamoss/Constructor-Word-Guess/issues"
+  },
+  "homepage": "https://github.com/marciamoss/Constructor-Word-Guess#readme",
+  "dependencies": {
+    "inquirer": "^6.2.2",
+    "random-words": "^1.1.0"
+  }
+}
