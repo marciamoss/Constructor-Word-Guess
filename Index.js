@@ -13,7 +13,7 @@ var theWord=randomWords();
 
 var Wordprocess= new Word(theWord);
 
-var letterArr=[], resultSoFar, dup, wrongLetter=[],correctLetter=[];
+var letterArr=[], resultSoFar, dup, notAlpha, wrongLetter=[],correctLetter=[];
 
 resultSoFar=Wordprocess.placeholder();
 
@@ -27,6 +27,7 @@ function getLetter(){
     ]).then(function(letter) {
 
         dup=0;
+        notAlpha=0;
        
         letterArr.push(letter.name.toLowerCase());
 
@@ -42,13 +43,15 @@ function getLetter(){
             }
         }
 
-        if(dup==0){
-            resultSoFar=Wordprocess.placeholder(letterArr[(letterArr.length-1)]);
-        }
-        
         //this checks only alphabets are entered and if only one alpha is entered each time 
         if(letter.name.length!=1 || (!letter.name.match(/[a-z]/i))){
-            console.log("Guess only one letter");
+            console.log("\nGuess only one alphabet\n".bold.red);
+            letterArr.pop();
+            notAlpha=1;
+        }
+
+        if(dup==0 && notAlpha==0){
+            resultSoFar=Wordprocess.placeholder(letterArr[(letterArr.length-1)]);
         }
         
         if((resultSoFar.countDown>0 && resultSoFar.countDown<=10) && resultSoFar.displayWord.indexOf("_")>-1){
