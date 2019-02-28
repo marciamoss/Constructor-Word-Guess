@@ -13,5 +13,7 @@
   shows up in the spot as where it appears in the word.
 * If you enter more than one letter or enter any non alphabet characters the game warns you to enter only one 
   alphabet and guess count does not change.
-* If you get the word right yo see a congratulatory message and moves on to play next word.
+* If you get the word right you see a congratulatory message and moves on to play next word.
 * It you get the word wrong it shows you the right word and moves on to play next word. 
+* If you don't finish guessing the word within 10 guesses along with displaying the right word it shows you list of 
+  wrong letters and list of right letters that you guessed for the losing round.
